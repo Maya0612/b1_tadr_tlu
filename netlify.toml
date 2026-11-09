@@ -1,0 +1,17 @@
+[[headers]]
+  for = "/*.mp3"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
+    Content-Type = "audio/mpeg"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/pdf"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
