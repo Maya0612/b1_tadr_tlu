@@ -10,15 +10,9 @@
 Đây là ứng dụng web tĩnh luyện thi B1 Đại học Thủy Lợi. **Để chạy web, không cần VS Code, Git, Node.js hay npm; chỉ cần giải nén dự án và có Python.** Coding agent chỉ cần mở thư mục dự án làm workspace, đọc mục "Quy ước khi agent sửa mã" bên dưới và làm theo yêu cầu của bạn.
 
 ### Tải mã nguồn
-
-* Không cài Git: vào [repository GitHub](https://github.com/Maya0612/b1_tadr_tlu) → nút **Code** → **Download ZIP** → giải nén toàn bộ ZIP.
-* Đã cài Git: chạy `git clone https://github.com/Maya0612/b1_tadr_tlu.git`, sau đó mở thư mục `b1_tadr_tlu`.
-
-Mở thư mục đã giải nén/clone trong coding agent bạn sử dụng (không nhất thiết là VS Code) rồi yêu cầu agent đọc README và sửa đúng chức năng. Ví dụ:
-
-> Đọc README.md trước. Hãy sửa chức năng … trong index.html, giữ nguyên phần không liên quan. Dự án là web tĩnh, không có npm/build/test runner; kiểm tra cú pháp JavaScript và thử chức năng sau khi sửa. Không định dạng lại dòng APP_DATA dài. Báo rõ file đã sửa và kết quả kiểm tra.
-
-Agent làm việc trên bản clone được mở trong workspace. Thay đổi ở bản clone không tự tác động tới máy của người khác hay website đã deploy; phiên bản dùng chung chỉ thay đổi khi chủ dự án commit/push hoặc deploy.
+* b1: chạy git clone https://github.com/Maya0612/b1_tadr_tlu.git
+* b2: mở thư mục cd b1_tadr_tlu
+* b3: mở code code.
 
 ### 💻 Chạy trên máy cá nhân
 #### Windows — không cần mở VS Code
@@ -30,13 +24,6 @@ Agent làm việc trên bản clone được mở trong workspace. Thay đổi �
 
 Nếu Windows báo không tìm thấy Python, hãy cài lại từ link trên, bảo đảm đã chọn **Add python.exe to PATH**, rồi thử lại. Nếu trình duyệt không tự mở, nhập `http://127.0.0.1:8000/` vào thanh địa chỉ.
 
-#### macOS/Linux hoặc chạy thủ công
-
-Mở Terminal tại thư mục dự án, chạy `python3 -m http.server 8000` (Windows: `python -m http.server 8000`), rồi mở `http://localhost:8000`. Dừng máy chủ bằng `Ctrl+C`.
-
-Có thể mở trực tiếp `index.html`, nhưng chạy qua máy chủ cục bộ đáng tin cậy hơn cho audio và quyền micro. Giao diện tải Tailwind CSS và phông chữ từ CDN nên cần Internet để hiển thị đầy đủ.
-
----
 
 ### Bản đồ dự án
 
