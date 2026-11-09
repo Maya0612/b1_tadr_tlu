@@ -10,9 +10,12 @@
 Đây là ứng dụng web tĩnh luyện thi B1 Đại học Thủy Lợi. **Để chạy web, không cần VS Code, Git, Node.js hay npm; chỉ cần giải nén dự án và có Python.** Coding agent chỉ cần mở thư mục dự án làm workspace, đọc mục "Quy ước khi agent sửa mã" bên dưới và làm theo yêu cầu của bạn.
 
 ### Tải mã nguồn
-* b1: chạy git clone https://github.com/Maya0612/b1_tadr_tlu.git
-* b2: mở thư mục cd b1_tadr_tlu
-* b3: mở code code.
+* b1: mở terminal
+   git clone https://github.com/Maya0612/b1_tadr_tlu.git
+* b2: mở thư mục
+   cd b1_tadr_tlu
+* b3: mở code
+   code.
 
 ### 💻 Chạy trên máy cá nhân
 #### Windows — không cần mở VS Code
