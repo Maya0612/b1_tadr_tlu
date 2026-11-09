@@ -5,6 +5,56 @@
 
 ---
 
+## 🤖 Hướng dẫn cho người dùng và coding agent
+
+Đây là ứng dụng web tĩnh luyện thi B1 Đại học Thủy Lợi. **Để chạy web, không cần VS Code, Git, Node.js hay npm; chỉ cần giải nén dự án và có Python.** Coding agent chỉ cần mở thư mục dự án làm workspace, đọc mục "Quy ước khi agent sửa mã" bên dưới và làm theo yêu cầu của bạn.
+
+### Tải mã nguồn
+
+* Không cài Git: vào [repository GitHub](https://github.com/Maya0612/b1_tadr_tlu) → nút **Code** → **Download ZIP** → giải nén toàn bộ ZIP.
+* Đã cài Git: chạy `git clone https://github.com/Maya0612/b1_tadr_tlu.git`, sau đó mở thư mục `b1_tadr_tlu`.
+
+Mở thư mục đã giải nén/clone trong coding agent bạn sử dụng (không nhất thiết là VS Code) rồi yêu cầu agent đọc README và sửa đúng chức năng. Ví dụ:
+
+> Đọc README.md trước. Hãy sửa chức năng … trong index.html, giữ nguyên phần không liên quan. Dự án là web tĩnh, không có npm/build/test runner; kiểm tra cú pháp JavaScript và thử chức năng sau khi sửa. Không định dạng lại dòng APP_DATA dài. Báo rõ file đã sửa và kết quả kiểm tra.
+
+Agent làm việc trên bản clone được mở trong workspace. Thay đổi ở bản clone không tự tác động tới máy của người khác hay website đã deploy; phiên bản dùng chung chỉ thay đổi khi chủ dự án commit/push hoặc deploy.
+
+### 💻 Chạy trên máy cá nhân
+#### Windows — không cần mở VS Code
+
+1. Nếu máy chưa có Python, tải từ trang chính thức [python.org/downloads/windows](https://www.python.org/downloads/windows/), mở bộ cài và đánh dấu **Add python.exe to PATH** trước khi bấm **Install Now**. Sau khi cài, đóng/mở lại cửa sổ File Explorer nếu cần.
+2. Trong File Explorer, mở thư mục dự án đã giải nén. Bên trong phải thấy `index.html`, thư mục tài liệu và `Chay_Web.bat`.
+3. Nhấp đúp `Chay_Web.bat`. Cửa sổ máy chủ sẽ mở và trình duyệt tự truy cập `http://127.0.0.1:8000/`.
+4. Để cửa sổ máy chủ mở trong khi học; đóng cửa sổ đó để dừng web.
+
+Nếu Windows báo không tìm thấy Python, hãy cài lại từ link trên, bảo đảm đã chọn **Add python.exe to PATH**, rồi thử lại. Nếu trình duyệt không tự mở, nhập `http://127.0.0.1:8000/` vào thanh địa chỉ.
+
+#### macOS/Linux hoặc chạy thủ công
+
+Mở Terminal tại thư mục dự án, chạy `python3 -m http.server 8000` (Windows: `python -m http.server 8000`), rồi mở `http://localhost:8000`. Dừng máy chủ bằng `Ctrl+C`.
+
+Có thể mở trực tiếp `index.html`, nhưng chạy qua máy chủ cục bộ đáng tin cậy hơn cho audio và quyền micro. Giao diện tải Tailwind CSS và phông chữ từ CDN nên cần Internet để hiển thị đầy đủ.
+
+---
+
+### Bản đồ dự án
+
+* `index.html`: ứng dụng chính; giao diện, dữ liệu nhúng và JavaScript đều nằm trong file này.
+* `00_De_Cuong_Va_Format_Thi/`, `01_De_Thi_Mau_Chuan_B1/`, `02_Luyen_Nghe_Audio_KET/`, `03_Doc_Va_Tu_Vung_Ngu_Phap/`, `04_Viet_Va_Noi/`: tài liệu PDF, audio và tài liệu học tập được ứng dụng sử dụng.
+* `Chay_Web.bat`: khởi chạy máy chủ local trên Windows, không cần mở VS Code.
+* `README.md`: hướng dẫn chạy, chức năng và lưu ý của dự án.
+* Cấu hình deploy tĩnh: `_headers`, `_redirects`, `vercel.json`, `netlify.toml`.
+
+### Quy ước khi agent sửa mã
+
+* Đọc khu vực liên quan trong `index.html` và tìm các hàm/dữ liệu cùng chức năng trước khi sửa; giữ thay đổi gọn trong phạm vi yêu cầu.
+* Dữ liệu lớn nằm trong dòng `const APP_DATA = ...` (tìm `const APP_DATA`); tránh định dạng lại hoặc ghi đè toàn bộ dòng JSON khi chỉ sửa một mục. `const DATA = APP_DATA` là alias dùng trong phần còn lại của ứng dụng.
+* Dữ liệu Writing mẫu nằm ở `APP_DATA.letters[].sample`. Speaking dùng `APP_DATA.speaking`; các câu Part 3 bổ sung nằm trong `SPEAKING_PART3_EXTRA`.
+* Tiến độ, lịch sử và câu trả lời cá nhân được lưu ở trình duyệt bằng `localStorage`, không có backend hay cơ sở dữ liệu dùng chung.
+* Sau khi sửa JavaScript, kiểm tra cú pháp và thử trực tiếp luồng đã thay đổi trên trang local. Dự án hiện không có cấu hình npm/build hoặc bộ test tự động; không báo test thành công nếu chưa chạy kiểm tra tương ứng.
+* Không xóa, đổi tên hoặc di chuyển tài liệu/audio nếu chưa được yêu cầu; các đường dẫn tài nguyên trong mã phải tiếp tục khớp tên tệp thực tế.
+
 ## 🌟 ĐIỂM CẢI TIẾN TRÊN BẢN CHUẨN (PRODUCTION RELEASE)
 
 1. **Dung lượng tối ưu < 100 MB (Chuẩn Cloudflare Pages Direct Upload):**
@@ -70,16 +120,7 @@ Hệ thống được thiết kế bám sát 100% cấu trúc đề cương họ
 1. Đăng nhập [app.netlify.com](https://app.netlify.com/).
 2. Kéo thả file `B1_Web_Deploy_Chuan.zip` (hoặc thư mục giải nén) vào ô **Sites / Drag and drop your site output folder here**.
 
-### 💻 Chạy trên máy cá nhân
-1. Mở thư mục dự án.
-2. Mở Terminal tại thư mục chứa `index.html`, chạy `python -m http.server 8000`.
-3. Mở `http://localhost:8000` bằng Chrome hoặc Edge. Dừng máy chủ bằng `Ctrl+C`.
 
-**Không cần mở VS Code:** trên Windows, nhấp đúp `Chay_Web.bat`. Cửa sổ máy chủ sẽ mở riêng và trình duyệt tự vào trang web. Giữ cửa sổ máy chủ mở trong lúc sử dụng; đóng cửa sổ đó để dừng. Cần cài Python và lệnh `python` có trong `PATH`.
-
-Có thể mở trực tiếp `index.html`, nhưng chạy qua máy chủ cục bộ đáng tin cậy hơn cho audio và quyền micro. Giao diện tải Tailwind CSS và phông chữ từ CDN nên cần Internet để hiển thị đầy đủ.
-
----
 
 ## 🔒 BẢO MẬT & LƯU TRỮ DỮ LIỆU
 * Câu trả lời, lịch sử trắc nghiệm/viết thư và câu trả lời Speaking cá nhân được lưu trong `localStorage` của trình duyệt, trên thiết bị và địa chỉ web đang dùng.
