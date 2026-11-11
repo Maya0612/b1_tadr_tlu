@@ -145,7 +145,7 @@
             <span class="text-base">📚</span> <span class="nav-label truncate">Từ Vựng B1 Theo Chủ Đề</span>
           </button>
           <button onclick="switchView('grammar_theory')" id="nav-grammar_theory" class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition">
-            <span class="text-base">📐</span> <span class="nav-label truncate">Ngữ Pháp Trọng Tâm (16 Bài)</span>
+            <span class="text-base">📐</span> <span class="nav-label truncate">Ngữ Pháp Trọng Tâm (17 Bài)</span>
           </button>
           <button onclick="switchView('collocations')" id="nav-collocations" class="nav-item w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 transition">
             <span class="text-base">🔗</span> <span class="nav-label truncate">Collocations & Phrasal Verbs</span>
@@ -638,12 +638,12 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- VIEW 5: GRAMMAR THEORY (16 CHUYÊN ĐỀ NGỮ PHÁP)      -->
+    <!-- VIEW 5: GRAMMAR THEORY (17 CHUYÊN ĐỀ NGỮ PHÁP)      -->
     <!-- ==================================================== -->
     <div id="view-grammar_theory" class="platform-view hidden space-y-6">
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-6">
         <div class="pb-4 border-b border-slate-100">
-          <h2 class="text-xl sm:text-2xl font-black text-slate-800">16 Chuyên Đề Ngữ Pháp Trọng Tâm Thủy Lợi</h2>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-800">17 Chuyên Đề Ngữ Pháp Trọng Tâm Thủy Lợi</h2>
           <p class="text-xs sm:text-sm text-slate-500 mt-1">Tổng hợp lý thuyết cô đọng, công thức và bẫy đề thi theo đúng đề cương học phần</p>
         </div>
         <div id="grammarTheoryContainer" class="space-y-4"></div>
@@ -1537,6 +1537,136 @@ let state = {
 
 // Aliases
 const DATA = APP_DATA;
+const grammarLesson = id => DATA.grammar_theory.find(lesson => lesson.id === id);
+
+Object.assign(grammarLesson(8), {
+  usage: 'Diễn tả khả năng, sự cho phép, nghĩa vụ, lời khuyên hoặc sự cần thiết.',
+  formula: 'Khẳng định: S + modal + V nguyên mẫu (không to)\nPhủ định: S + modal + not + V nguyên mẫu\nCâu hỏi: Modal + S + V nguyên mẫu?\nHave to / need to + V nguyên mẫu; ought to + V nguyên mẫu',
+  signals: 'can/could (có thể); may/might (có lẽ/được phép); must/have to (phải); mustn’t (bị cấm); don’t have to/needn’t (không cần); should/ought to (nên)',
+  examples: [
+    'You must wear a helmet. (Bạn phải đội mũ bảo hiểm.)',
+    'You mustn’t smoke here. (Bạn không được hút thuốc ở đây.)',
+    'You don’t have to come early. (Bạn không cần đến sớm.)',
+    'She should study more. (Cô ấy nên học nhiều hơn.)',
+    'He might be at home. (Có lẽ anh ấy đang ở nhà.)'
+  ],
+  notes: 'Sau can, could, may, might, must, should luôn dùng V nguyên mẫu không “to”. Riêng have to / need to / ought to có “to”. Mustn’t = cấm; don’t have to / needn’t = không bắt buộc.'
+});
+
+Object.assign(grammarLesson(9), {
+  usage: 'Thuật lại lời nói, câu hỏi hoặc yêu cầu của người khác.',
+  formula: 'Câu kể: S + said (that) + mệnh đề / S + told + O + (that) + mệnh đề\nYes/No: S + asked + O + if/whether + S + V\nWh-question: S + asked + O + từ hỏi + S + V\nMệnh lệnh: S + told/asked + O + (not) to + V',
+  signals: 'say/said (that); tell/told + người nghe; ask/asked; if/whether; đổi đại từ và từ chỉ thời gian/nơi chốn theo ngữ cảnh.',
+  examples: [
+    'Direct: “I am tired,” Lan said. → Reported: Lan said (that) she was tired. (Lan nói cô ấy mệt.)',
+    'Direct: “Do you work here?” he asked me. → He asked me if I worked there. (Anh ấy hỏi tôi có làm việc ở đó không.)',
+    'Direct: “Open the door,” she said to me. → She told me to open the door. (Cô ấy bảo tôi mở cửa.)'
+  ],
+  notes: 'Thường lùi thì khi động từ tường thuật ở quá khứ: am/is → was; do/does → did; did/V2 → had + V3; will → would; can → could. Câu hỏi gián tiếp dùng trật tự chủ ngữ + động từ, không đảo trợ động từ.'
+});
+
+Object.assign(grammarLesson(10), {
+  title: '10. Câu Điều Kiện Loại 0, 1 & 2 (Conditionals)',
+  usage: 'Diễn tả sự thật hiển nhiên (loại 0), khả năng có thể xảy ra (loại 1), hoặc giả định không có thật ở hiện tại (loại 2).',
+  formula: 'Loại 0: If + hiện tại đơn, hiện tại đơn\nLoại 1: If + hiện tại đơn, will + V nguyên mẫu\nLoại 2: If + quá khứ đơn (be → were), would/could + V nguyên mẫu\nUnless = If ... not',
+  signals: 'if (nếu); unless (nếu không); loại 1 thường nói về hiện tại/tương lai có thể xảy ra; loại 2 nói về giả định hiện tại.',
+  examples: [
+    'If you heat ice, it melts. (Nếu làm nóng đá, đá tan.)',
+    'If you study hard, you will pass. (Nếu bạn học chăm chỉ, bạn sẽ đỗ.)',
+    'If I were you, I would ask the teacher. (Nếu tôi là bạn, tôi sẽ hỏi giáo viên.)',
+    'Unless you hurry, you will miss the bus. (Nếu bạn không nhanh lên, bạn sẽ lỡ xe buýt.)'
+  ],
+  notes: 'Không dùng will ngay sau if/unless trong câu điều kiện loại 1. Unless đã mang nghĩa “nếu không”, nên mệnh đề sau unless thường không thêm don’t/doesn’t.'
+});
+
+Object.assign(grammarLesson(12), {
+  usage: 'Học động từ theo sau đi với to-V, V-ing hay động từ nguyên thể không “to”.',
+  formula: 'V + TO-V: agree, afford, appear, arrange, choose, decide, expect, fail, hope, learn, manage, need, offer, plan, prepare, pretend, promise, refuse, seem, tend, want\nV + V-ING: admit, avoid, can’t help, consider, delay, deny, dislike, enjoy, finish, imagine, keep, mind, miss, postpone, practice, quit, recommend, risk, suggest, tolerate\nV + O + TO-V: advise, allow, ask, encourage, expect, force, invite, order, persuade, remind, teach, tell, want\nV + O + V (không to): let, make; help + O + (to) V\nMODAL + V (không to): can, could, may, might, must, shall, should, will, would\nDẠNG KHÔNG TO KHÁC: do/does/did + V; had better/would rather + V',
+  patternGroups: [
+    { structure: 'Động từ + to-V', verbs: 'agree, afford, appear, arrange, choose, decide, expect, fail, hope, learn, manage, need, offer, plan, prepare, pretend, promise, refuse, seem, tend, want', example: 'They agreed to help. (Họ đồng ý giúp.)' },
+    { structure: 'Động từ + V-ing', verbs: 'admit, avoid, can’t help, consider, delay, deny, dislike, enjoy, finish, imagine, keep, mind, miss, postpone, practice, quit, recommend, risk, suggest, tolerate', example: 'She avoids driving at night. (Cô ấy tránh lái xe ban đêm.)' },
+    { structure: 'Động từ + tân ngữ + to-V', verbs: 'advise, allow, ask, encourage, expect, force, invite, order, persuade, remind, teach, tell, want', example: 'The teacher advised me to review. (Giáo viên khuyên tôi ôn tập.)' },
+    { structure: 'let/make + tân ngữ + V nguyên thể', verbs: 'let somebody do something; make somebody do something', example: 'He made me laugh. (Anh ấy khiến tôi cười.)' },
+    { structure: 'help + tân ngữ + (to-)V', verbs: 'help somebody do / help somebody to do', example: 'She helped me (to) carry the books. (Cô ấy giúp tôi mang sách.)' },
+    { structure: 'Modal verb + V nguyên thể', verbs: 'can, could, may, might, must, shall, should, will, would', example: 'You should review your notes. (Bạn nên ôn lại ghi chép.)' },
+    { structure: 'Cấu trúc khác + V nguyên thể', verbs: 'do/does/did + V; had better + V; would rather + V', example: 'You had better leave now. (Bạn nên đi ngay bây giờ.)' }
+  ],
+  signals: 'to-V: decide to leave\nV-ing: avoid driving\nTân ngữ + to-V: ask someone to help\nModal + V nguyên thể: must study\nSau giới từ + V-ing: interested in learning',
+  examples: [
+    'They agreed to help us. (Họ đồng ý giúp chúng tôi.)',
+    'She avoids driving at night. (Cô ấy tránh lái xe ban đêm.)',
+    'The teacher advised me to review. (Giáo viên khuyên tôi ôn tập.)',
+    'You should review your notes. (Bạn nên ôn lại ghi chép.)',
+    'He made me laugh. (Anh ấy khiến tôi cười.)'
+  ],
+  notes: 'Sau giới từ dùng V-ing: interested in learning; look forward to seeing (to ở đây là giới từ).\nLike/love/start có thể dùng với cả to-V và V-ing.\nStop doing = dừng hẳn việc đang làm; stop to do = dừng việc khác để làm việc này.\nRemember doing = nhớ đã làm; remember to do = nhớ phải làm.\nTry doing = thử làm; try to do = cố gắng làm.'
+});
+
+Object.assign(grammarLesson(13), {
+  usage: 'Dùng từ nối để thể hiện nguyên nhân, kết quả, tương phản hoặc nhượng bộ.',
+  formula: 'Because / although + S + V\nBecause of / despite / in spite of + danh từ hoặc V-ing\nSo / therefore + kết quả\nBut / however + ý tương phản',
+  signals: 'Nguyên nhân: because, because of. Kết quả: so, therefore. Tương phản/nhượng bộ: but, however, although, despite, in spite of.',
+  examples: [
+    'Because it rained, we stayed home. (Vì trời mưa nên chúng tôi ở nhà.)',
+    'Because of the rain, we stayed home. (Vì cơn mưa nên chúng tôi ở nhà.)',
+    'Although she was tired, she kept working. (Mặc dù mệt, cô ấy vẫn tiếp tục làm việc.)',
+    'Despite being tired, she kept working. (Mặc dù mệt, cô ấy vẫn tiếp tục làm việc.)'
+  ],
+  notes: 'Because/although nối với mệnh đề có chủ ngữ và động từ. Because of/despite/in spite of theo sau bởi danh từ hoặc V-ing. Không dùng although và but cùng một mệnh đề.'
+});
+
+Object.assign(grammarLesson(14), {
+  usage: 'Sắp xếp nhiều tính từ đứng trước một danh từ theo thứ tự tự nhiên trong tiếng Anh.',
+  formula: 'O Opinion (ý kiến) → S Size (kích thước) → A Age (tuổi) → S Shape (hình dạng) → C Color (màu sắc) → O Origin (nguồn gốc) → M Material (chất liệu) → P Purpose (mục đích) + danh từ',
+  signals: 'Opinion: beautiful; Size: big; Age: old; Shape: square; Color: brown; Origin: Vietnamese; Material: wooden; Purpose: sleeping (bag).',
+  examples: [
+    'a beautiful small old round red Italian wooden table (một chiếc bàn gỗ Ý màu đỏ, tròn, cũ, nhỏ và đẹp)',
+    'a big square brown box (một chiếc hộp lớn, hình vuông, màu nâu)'
+  ],
+  notes: 'Không phải lúc nào cũng cần đủ 8 loại tính từ. Khi có nhiều tính từ, giữ đúng thứ tự OSASCOMP; mục đích thường đứng sát danh từ.'
+});
+
+Object.assign(grammarLesson(15), {
+  title: '15. Cấu Trúc So Sánh (Hơn, Nhất, Bằng)',
+  usage: 'So sánh hai hay nhiều người/vật về tính chất hoặc mức độ.',
+  formula: 'SO SÁNH HƠN (2 đối tượng):\nTính từ ngắn: adj-er + than (small → smaller than)\nTính từ dài: more + adj + than (expensive → more expensive than)\nCó thể dùng less + adj + than để nói “kém ... hơn”.\n\nSO SÁNH NHẤT (từ 3 đối tượng):\nTính từ ngắn: the + adj-est (small → the smallest)\nTính từ dài: the most + adj (expensive → the most expensive)\n\nSO SÁNH BẰNG:\nas + adj/adv + as = ... bằng ...\nnot as/so + adj/adv + as = không ... bằng ...',
+  signals: 'than → thường là so sánh hơn; the ... in/of → thường là so sánh nhất; as ... as → so sánh bằng; not as/so ... as → so sánh không bằng.',
+  examples: [
+    'My room is smaller than yours. (Phòng tôi nhỏ hơn phòng bạn.)',
+    'This is the most interesting book in the library. (Đây là quyển sách thú vị nhất trong thư viện.)',
+    'Lan is as tall as her sister. (Lan cao bằng chị/em gái.)',
+    'This exercise is not as difficult as the last one. (Bài tập này không khó bằng bài trước.)'
+  ],
+  notes: 'Quy tắc thường gặp: tính từ ngắn thêm -er/-est; tính từ tận cùng -e chỉ thêm -r/-st; phụ âm-nguyên âm-phụ âm thường gấp đôi phụ âm cuối; tận cùng phụ âm + y đổi y thành i. Bất quy tắc: good → better → best; bad → worse → worst; far → farther/further → farthest/furthest.'
+});
+
+Object.assign(grammarLesson(16), {
+  usage: 'Mệnh đề quan hệ bổ sung thông tin cho danh từ đứng ngay trước nó.',
+  formula: 'Who: người (chủ ngữ) · Whom: người (tân ngữ, trang trọng) · Which: vật\nThat: người/vật trong mệnh đề xác định · Whose: sở hữu\nWhere: nơi chốn · When: thời gian · Why: lý do',
+  signals: 'Danh từ chỉ người → who/whom; vật → which; sở hữu → whose; địa điểm → where; thời gian → when; lý do → why.',
+  examples: [
+    'The student who sits next to me is friendly. (Sinh viên ngồi cạnh tôi rất thân thiện.)',
+    'This is the laptop which I bought. (Đây là chiếc máy tính xách tay mà tôi đã mua.)',
+    'That is the café where we met. (Đó là quán cà phê nơi chúng tôi gặp nhau.)',
+    'I remember the day when we first met. (Tôi nhớ ngày chúng ta gặp nhau lần đầu.)'
+  ],
+  notes: 'Mệnh đề không xác định có dấu phẩy thì không dùng that. Có thể lược bỏ đại từ quan hệ làm tân ngữ trong mệnh đề xác định, nhưng không lược bỏ khi nó làm chủ ngữ.'
+});
+
+DATA.grammar_theory.push({
+  id: 17,
+  title: '17. Cấu Tạo Từ (Word Formation)',
+  usage: 'Chọn đúng loại từ và dạng từ theo vị trí, cấu trúc câu và ý nghĩa.',
+  formula: 'DANH TỪ (NOUN):\n-tion/-sion: educate → education; decide → decision\n-ment: develop → development; achieve → achievement\n-ness: happy → happiness; kind → kindness\n-ity: possible → possibility; active → activity\n-er/-or: teach → teacher; act → actor\n-ance/-ence: important → importance; differ → difference\n\nTÍNH TỪ (ADJECTIVE):\n-ful/-less: help → helpful; care → careless\n-ous: danger → dangerous; fame → famous\n-able/-ible: comfort → comfortable; access → accessible\n-ive: create → creative; act → active\n-al/-y: nature → natural; health → healthy\n-ed/-ing: bore → bored (người cảm thấy) / boring (vật gây cảm giác)\n\nTRẠNG TỪ (ADVERB):\nTính từ + -ly: careful → carefully; slow → slowly\nTận cùng phụ âm + y: easy → easily\nBất quy tắc: good → well; fast → fast; hard → hard\n\nĐỘNG TỪ (VERB) thường gặp:\n-en: wide → widen; -ize: modern → modernize; -ify: simple → simplify',
+  signals: 'Noun: sau a/an/the, tính từ, sở hữu từ; Adjective: trước danh từ hoặc sau be/seem/look/feel; Adverb: thường bổ nghĩa cho động từ/tính từ; Verb: sau chủ ngữ hoặc modal + V nguyên mẫu.',
+  examples: [
+    'Her explanation was useful. (explain → explanation: danh từ; use → useful: tính từ)',
+    'He answered carefully. (careful → carefully: trạng từ bổ nghĩa cho động từ)',
+    'The film was boring, so I felt bored. (-ing: gây cảm xúc; -ed: người có cảm xúc)'
+  ],
+  notes: 'Hãy xác định vị trí chỗ trống cần danh từ, tính từ, trạng từ hay động từ trước; sau đó mới chọn hậu tố. Một số dạng bất quy tắc cần học riêng, ví dụ good → well và strong → strength.'
+});
+
 window.DATA = DATA;
 window.APP_DATA = DATA;
 
@@ -2942,6 +3072,15 @@ function loadLetterTopic(idx) {
 // ==========================================
 // 10. VOCAB QUIZ (220 CÂU TRẮC NGHIỆM)
 // ==========================================
+const VOCAB_OPTION_EXPLANATIONS = {
+  9: {
+    A: '"Was ringing" và "tried" đảo ngược diễn tiến: việc thử giày đang diễn ra khi điện thoại reo.',
+    B: '"Rang" là hành động xen vào; "was trying" là hành động đang diễn ra.',
+    C: 'Cả hai ở quá khứ đơn, không thể hiện hành động đang thử giày bị tiếng chuông xen vào.',
+    D: 'Cả hai ở quá khứ tiếp diễn; câu cần "rang" để chỉ sự việc xen vào.'
+  }
+};
+
 function renderVocabList() {
   const container = document.getElementById('vocabQuestionsList');
   const select = document.getElementById('vocabQuizTopicSelect');
@@ -2982,19 +3121,13 @@ function renderVocabList() {
         </div>
         ${isAnswered ? `
           <div class="p-3 rounded-lg text-xs bg-white border border-slate-200 space-y-2">
-            <p class="font-black text-slate-800">Đáp án đúng (${q.ans}): ${q.options.find(option => option.charAt(0) === q.ans)}</p>
-            <p class="text-slate-700">${q.exp}</p>
-            <p class="font-black text-slate-800 pt-1 border-t border-slate-200">Đối chiếu các lựa chọn:</p>
-            ${q.options.map(option => {
-              const letter = option.charAt(0);
-              const isCorrectOption = letter === q.ans;
-              const specificExplanation = q.optionExplanations && q.optionExplanations[letter];
-              return `
-                <div class="p-2 rounded-lg ${isCorrectOption ? 'bg-emerald-50 text-emerald-900 border border-emerald-200' : 'bg-slate-50 text-slate-700 border border-slate-200'}">
-                  <strong>${letter}. ${isCorrectOption ? 'Đúng' : 'Không chọn'}:</strong> ${specificExplanation || (isCorrectOption ? 'Phù hợp với quy tắc giải thích ở trên.' : 'Không phù hợp với quy tắc giải thích ở trên; dữ liệu hiện chưa có nhận xét riêng cho lựa chọn này.')}
-                </div>
-              `;
-            }).join('')}
+            <p class="font-black ${userChoice === q.ans ? 'text-emerald-800' : 'text-rose-800'}">
+              ${userChoice === q.ans ? 'Đúng.' : `Chưa đúng. Bạn chọn ${userChoice}; đáp án đúng là ${q.ans}.`}
+            </p>
+            <p class="text-slate-700"><strong>Lý do:</strong> ${q.exp}</p>
+            ${userChoice !== q.ans && VOCAB_OPTION_EXPLANATIONS[q.id]?.[userChoice]
+              ? `<p class="text-slate-700"><strong>Lựa chọn ${userChoice}:</strong> ${VOCAB_OPTION_EXPLANATIONS[q.id][userChoice]}</p>`
+              : ''}
           </div>
         ` : ''}
       </div>
@@ -3094,6 +3227,157 @@ function getTransformAcceptedAnswers(item) {
   return [...new Set([item.ans, ...(item.acceptable || [])].filter(Boolean))];
 }
 
+const TRANSFORM_MEANINGS = {
+  1: 'Chú tôi sơn nhà lần cuối vào năm ngoái.',
+  2: 'Họ đến thăm tôi lần cuối cách đây 5 năm.',
+  3: 'Mary chụp ảnh lần cuối khi đi nghỉ năm ngoái.',
+  4: 'Các con tôi ăn kem lần cuối vào mùa hè năm ngoái.',
+  5: 'Lần cuối chị tôi mua quần áo là 9 tháng trước.',
+  6: 'Janet bắt đầu chơi piano khi học lớp 5.',
+  7: 'Những công nhân này bắt đầu làm ở nhà máy đó vào năm 2001.',
+  8: 'Bạn tôi bắt đầu học tiếng Anh 15 năm trước.',
+  9: 'Tôi gặp giáo viên cấp hai lần cuối cách đây 3 năm.',
+  10: 'David bắt đầu học kỹ thuật xây dựng vào năm 2020.',
+  11: 'Không học sinh nào trong lớp thông minh bằng Bill.',
+  12: 'Vùng nông thôn yên bình hơn thành phố.',
+  13: 'Ghế phía trước đắt hơn ghế phía sau.',
+  14: 'Không thành phố nào ở Anh thú vị bằng Liverpool.',
+  15: 'Nói tiếng Nhật dễ hơn viết tiếng Nhật.',
+  16: 'Đi máy bay thoải mái hơn đi tàu hỏa.',
+  17: 'Không nơi nào trên Trái Đất lạnh bằng Nam Cực.',
+  18: 'Công viên Trung tâm ở New York lớn hơn công viên Hyde ở London.',
+  19: 'Không ai trong đội bóng đá chơi hay hơn Hoàng.',
+  20: 'Ở ký túc xá rẻ hơn thuê căn hộ riêng.',
+  21: 'Anh ấy làm việc cho một người phụ nữ từng là nghệ sĩ.',
+  22: 'Họ gọi một bác sĩ sống gần đó.',
+  23: 'Cảnh sát vừa bắt một người đàn ông đã cướp ngân hàng.',
+  24: 'Đây là chiếc máy tính xách tay bố mẹ mua tặng tôi nhân sinh nhật 18 tuổi.',
+  25: 'Chúng tôi làm hỏng một chiếc ô tô thuộc về hàng xóm.',
+  26: 'Cô ấy mở chiếc tủ nơi cô ấy cất những bức thư bí mật.',
+  27: 'Đây là một ngôi nhà rất cổ, nơi ông tôi được sinh ra.',
+  28: 'Trong thị trấn có một hiệu sách mới rất tuyệt, nơi bạn có thể mua sách tiếng Anh giá rẻ.',
+  29: 'Hôm qua chúng tôi gặp một kiến trúc sư đã thiết kế hội trường mới của trường đại học.',
+  30: 'Đó là khu chợ truyền thống nơi chúng tôi mua hoa tươi và trái cây.',
+  31: 'Nếu anh ấy không chăm chỉ, anh ấy sẽ trượt kỳ thi.',
+  32: 'Nếu cô ấy không nhanh lên, cô ấy sẽ lỡ xe buýt.',
+  33: 'Nếu cô ấy không tưới cây, chúng sẽ chết.',
+  34: 'Nếu bạn không ngừng hút thuốc, sức khỏe của bạn sẽ xấu đi.',
+  35: 'Mọi người xả rác xuống sông nên nước bị ô nhiễm.',
+  36: 'Tôi không có ô tô nên không thể đưa bạn ra sân bay.',
+  37: 'Chúng tôi không có đủ tiền nên không thể mua căn hộ lớn đó.',
+  38: 'Ben thức khuya mỗi tối nên sáng nào cũng cảm thấy mệt.',
+  39: 'Nếu bạn không mặc áo khoác ấm, bạn sẽ bị cảm lạnh.',
+  40: 'Tôi không biết câu trả lời nên không thể giải thích cho bạn.',
+  41: 'Các cậu bé nói: “Hôm qua chúng tôi đã giành chức vô địch.”',
+  42: 'Jane nói với bố rằng cô ấy muốn trở thành kỹ sư.',
+  43: 'Alex nói: “Tôi đã học tiếng Anh ở Đại học Thủy Lợi.”',
+  44: 'John nói với tôi: “Chúng tôi có thể giúp bạn làm bài tập.”',
+  45: 'Anh ấy nói với tôi: “Hôm qua tôi đã gặp anh/em trai của bạn ở bến xe buýt.”',
+  46: 'Ông West nói: “Hôm nay tôi rất bận ôn thi cuối kỳ.”',
+  47: 'Cô ấy nói: “Ngày mai tôi sẽ bay đến Đà Nẵng.”',
+  48: 'Giáo viên nói: “Ngày mai chúng ta sẽ thăm nhà máy thủy điện.”',
+  49: 'Peter nói với tôi: “Tôi vẫn chưa hoàn thành bài tập tiếng Anh.”',
+  50: 'Lan khuyên tôi ôn lại ghi chép trước kỳ thi.',
+  51: 'Tại sao bạn phải rời cuộc họp sớm?',
+  52: 'Tôi nghĩ bạn không nên dành quá nhiều thời gian chơi trò chơi.',
+  53: 'Trẻ em phải mặc đồng phục ở trường này.',
+  54: 'Hôm nay anh ấy không cần mang ô.',
+  55: 'Chúng ta phải nộp dự án đúng hạn.',
+  56: 'Bạn không cần hoàn thành tất cả bài tập này hôm nay.',
+  57: 'Học sinh không nên thức trắng đêm trước ngày thi.',
+  58: 'Tất cả người đi xe máy ở Việt Nam phải đội mũ bảo hiểm.',
+  59: 'Bạn không cần mang máy tính xách tay của mình đến phòng thí nghiệm.',
+  60: 'Có lẽ ngày mai anh ấy sẽ tham dự hội thảo về năng lượng tái tạo.',
+  61: 'Mặc dù nhà nhỏ, họ vẫn giữ nhà cửa gọn gàng sạch sẽ.',
+  62: 'Mặc dù cô ấy xinh đẹp, mọi người đều ghét cô ấy.',
+  63: 'Kate đã làm bài thi không tốt mặc dù cô ấy học rất chăm chỉ.',
+  64: 'Mặc dù rất đói, tôi vẫn không thể ăn.',
+  65: 'Mặc dù thời tiết xấu, chúng tôi vẫn có chuyến đi vui vẻ.',
+  66: 'Bọn trẻ ngủ ngon mặc dù có tiếng ồn.',
+  67: 'Mặc dù bị ốm, cô ấy vẫn tham gia kỳ thi cuối kỳ.',
+  68: 'Mặc dù mưa to, các học sinh vẫn đi cắm trại trên núi.',
+  69: 'Mặc dù còn rất trẻ, anh ấy là một lập trình viên phần mềm xuất sắc.',
+  70: 'Mặc dù có rất ít tiền, họ luôn giúp đỡ người khác.',
+  71: 'Trận bóng bị hủy vì thời tiết xấu.',
+  72: 'Anh ấy không ngủ được vì bên ngoài rất ồn.',
+  73: 'Cô ấy đến muộn buổi thi vì có tắc đường.',
+  74: 'Vì bị ốm nặng, cô ấy không thể tham gia kỳ thi tốt nghiệp.',
+  75: 'Chúng tôi hủy chuyến đi thực tế vì trời mưa to suốt buổi sáng.',
+  76: 'Tom dễ dàng vượt qua bài thi B1 vì đã học rất chăm chỉ.',
+  77: 'Chúng tôi lỡ lễ khai mạc vì chuyến bay bị hoãn.',
+  78: 'Anh ấy không mua được cuốn sách giáo khoa khoa học đó vì không đủ tiền.',
+  79: 'Nông nghiệp địa phương bị ảnh hưởng nghiêm trọng vì thiếu nước trầm trọng.',
+  80: 'Trận bóng bị dừng vì sương mù rất dày.',
+  81: 'Bà đã nuôi nấng anh ấy và anh ấy được học ở Paris.',
+  82: 'Người đàn ông bảo chúng tôi không được đi trên cỏ.',
+  83: 'Chưa ai ký tấm séc này.',
+  84: 'Việt Nam xuất khẩu gạo sang nhiều nước.',
+  85: 'Hành khách không nên vứt vé đi.',
+  86: 'Thomas Edison không phát minh ra bóng đèn vào năm 1867.',
+  87: 'Mọi người nói tiếng Anh trên khắp thế giới.',
+  88: 'Họ xây cây cầu này vào năm 2010.',
+  89: 'Họ sẽ công bố kết quả thi vào ngày mai.',
+  90: 'Bạn phải nộp bài tập trước thứ Sáu.',
+  91: 'Hội chợ quá ồn nên chúng tôi không thể nghe thấy nhau.',
+  92: 'Căn hộ mới của chúng tôi có ba phòng ngủ.',
+  93: 'Khi còn là học sinh, tôi thường đi học bằng xe đạp, nhưng bây giờ thì không.',
+  94: 'Anh trai tôi mất hai giờ để hoàn thành bài tập tiếng Anh.',
+  95: 'Mỗi ngày cô ấy mất 30 phút đi bộ đến trường đại học.',
+  96: 'Nước sông lạnh đến mức bọn trẻ không thể bơi.',
+  97: 'Bài giảng thú vị đến mức tất cả sinh viên đều chăm chú lắng nghe.',
+  98: 'Anh ấy còn quá trẻ để lái ô tô.',
+  99: 'Khi còn nhỏ, chị tôi thường uống sữa trước khi đi ngủ, nhưng bây giờ chị ấy uống trà.',
+  100: 'Kỹ sư mất 45 phút để đi đến công trường.'
+};
+
+function getTransformReason(item) {
+  const category = Number(item.cat.match(/^\d+/)?.[0]);
+  const reasons = {
+    1: 'Dùng hiện tại hoàn thành với since (mốc thời gian) hoặc for (khoảng thời gian).',
+    2: 'Đổi sang cấu trúc so sánh tương đương, giữ nguyên mức độ và đối tượng so sánh.',
+    3: 'Dùng who cho người, which cho vật và where cho địa điểm để nối hai ý.',
+    4: item.id <= 34
+      ? 'Unless = if not; sau unless dùng hiện tại đơn, mệnh đề kết quả dùng will + động từ.'
+      : 'Điều kiện không có thật ở hiện tại dùng If + quá khứ đơn, would/could + động từ.',
+    5: item.id === 50
+      ? 'Đổi lời khuyên sang advise + tân ngữ + to-V.'
+      : 'Câu tường thuật cần đổi đại từ và lùi thì phù hợp.',
+    6: 'Chọn động từ khuyết thiếu diễn tả đúng nghĩa bắt buộc, không cần, lời khuyên hoặc khả năng.',
+    7: 'Although + mệnh đề; despite/in spite of + danh từ hoặc V-ing.',
+    8: 'Because + mệnh đề; because of/due to + cụm danh từ.',
+    9: 'Câu bị động đưa tân ngữ lên làm chủ ngữ và dùng be + quá khứ phân từ.',
+    10: item.id === 93 || item.id === 99
+      ? 'Used to + động từ nguyên mẫu diễn tả thói quen trong quá khứ nay không còn.'
+      : item.id === 94 || item.id === 95 || item.id === 100
+        ? 'Đổi spend time + V-ing sang it takes/take + người + thời gian + to-V hoặc ngược lại.'
+        : item.id === 92
+          ? 'Have got diễn tả sự sở hữu, tương đương với have.'
+          : item.id === 97
+            ? 'Đổi such + cụm danh từ sang so + tính từ mà không đổi nghĩa.'
+            : 'Too + tính từ diễn tả mức độ quá mức dẫn đến kết quả không thể xảy ra.'
+  };
+  return reasons[category] || item.rule;
+}
+
+function renderTransformFeedback(item, userAnswer, isCorrect) {
+  const fullAnswer = `${item.start.trim()} ${item.ans.trim()}`.replace(/\s+/g, ' ');
+  const tone = isCorrect ? 'text-emerald-800' : 'text-rose-800';
+
+  return `
+    <div class="space-y-2">
+      <p class="font-bold ${tone}">${isCorrect ? '✓ Đúng' : '✗ Chưa đúng'}</p>
+      ${!isCorrect ? `<p><strong>Bạn trả lời:</strong> ${escapeHtml(userAnswer)}</p>` : ''}
+      <div>
+        <p class="font-bold text-slate-800">Đáp án đúng:</p>
+        <p lang="en" class="mt-0.5">${escapeHtml(fullAnswer)}</p>
+      </div>
+      <p><strong>Dịch đề:</strong> ${TRANSFORM_MEANINGS[item.id] || 'Chưa có bản dịch.'}</p>
+      <p><strong>Dịch đáp án:</strong> ${TRANSFORM_MEANINGS[item.id] || 'Chưa có bản dịch.'}</p>
+      <p><strong>Lý do:</strong> ${getTransformReason(item)}</p>
+    </div>
+  `;
+}
+
 function renderTransformList() {
   const container = document.getElementById('transformQuestionsList');
   const select = document.getElementById('transformCategorySelect');
@@ -3109,8 +3393,6 @@ function renderTransformList() {
     const saved = state.transformAnswers[qId] || '';
     const isAnswered = !!saved;
     const isCorrect = isAnswered && checkSentenceEquivalence(saved, t.ans, t.acceptable);
-    const acceptedAnswers = getTransformAcceptedAnswers(t);
-
     return `
       <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 space-y-3 text-xs">
         <div class="flex items-center justify-between">
@@ -3128,9 +3410,7 @@ function renderTransformList() {
         </div>
 
         <div id="transExp_${qId}" class="${isAnswered ? '' : 'hidden'} p-3 rounded-lg text-xs font-medium border ${isCorrect ? 'bg-emerald-50 text-emerald-800 border-emerald-200' : 'bg-rose-50 text-rose-800 border-rose-200'}">
-          ${isAnswered ? (isCorrect
-            ? `🎉 <strong>Chính xác!</strong><br>Đáp án có thể chấp nhận: ${acceptedAnswers.map(answer => `"${answer}"`).join(' · ')}<br><em>Quy tắc: ${t.rule}</em>`
-            : `⚠️ <strong>Chưa chính xác:</strong> Câu của bạn: "${escapeHtml(saved)}"<br>Đáp án có thể chấp nhận: <strong>${acceptedAnswers.map(answer => `"${answer}"`).join(' · ')}</strong><br><em>Quy tắc: ${t.rule}</em>`) : ''}
+          ${isAnswered ? renderTransformFeedback(t, saved, isCorrect) : ''}
         </div>
       </div>
     `;
@@ -3178,11 +3458,10 @@ function checkTransform(qId) {
 
   if (isCorrect) {
     exp.classList.add('bg-emerald-50', 'text-emerald-800', 'border-emerald-200');
-    exp.innerHTML = `🎉 <strong>Chính xác!</strong><br>Đáp án có thể chấp nhận: ${getTransformAcceptedAnswers(t).map(answer => `"${answer}"`).join(' · ')}<br><em>Quy tắc: ${t.rule}</em>`;
   } else {
     exp.classList.add('bg-rose-50', 'text-rose-800', 'border-rose-200');
-    exp.innerHTML = `⚠️ <strong>Chưa chính xác:</strong> Câu của bạn: "${escapeHtml(userVal)}"<br>Đáp án có thể chấp nhận: <strong>${getTransformAcceptedAnswers(t).map(answer => `"${answer}"`).join(' · ')}</strong><br><em>Quy tắc: ${t.rule}</em>`;
   }
+  exp.innerHTML = renderTransformFeedback(t, userVal, isCorrect);
 
   function resetTransformCategory() {
     const select = document.getElementById('transformCategorySelect');
@@ -4513,7 +4792,7 @@ function renderHistoryView() {
   `).join('');
 }
 
-// 16 Grammar units
+// 17 Grammar units
 function renderGrammarTheory() {
   const container = document.getElementById('grammarTheoryContainer');
   if (!container || container.children.length > 0) return;
@@ -4535,17 +4814,48 @@ function renderGrammarTheory() {
       </div>
 
       <div id="grammarContent-${idx}" class="p-5 border-t border-slate-100 space-y-4 text-xs sm:text-sm">
-        ${g.formula ? `
+        ${g.usage ? `
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="font-black text-slate-800 block mb-1">🎯 Cách dùng:</span>
+            <p class="text-slate-700 text-xs leading-relaxed">${g.usage}</p>
+          </div>
+        ` : ''}
+
+        ${g.patternGroups && g.patternGroups.length ? `
+          <div class="p-3 bg-blue-50/60 rounded-xl border border-blue-200/80 space-y-2">
+            <span class="font-black text-blue-900 block">📐 Bảng động từ và cấu trúc theo sau:</span>
+            <div class="overflow-x-auto rounded-lg border border-blue-100 bg-white">
+              <table class="w-full min-w-[680px] text-left text-xs">
+                <thead class="bg-blue-100/70 text-blue-950">
+                  <tr>
+                    <th class="p-2.5 font-bold">Cấu trúc</th>
+                    <th class="p-2.5 font-bold">Động từ / cụm phổ biến</th>
+                    <th class="p-2.5 font-bold">Ví dụ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${g.patternGroups.map(group => `
+                    <tr class="border-t border-slate-100 align-top">
+                      <td class="p-2.5 font-bold text-slate-800">${group.structure}</td>
+                      <td class="p-2.5 text-slate-700">${group.verbs}</td>
+                      <td class="p-2.5 text-slate-600">${group.example}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ` : g.formula ? `
           <div class="p-3 bg-blue-50/60 rounded-xl border border-blue-200/80">
             <span class="font-black text-blue-900 block mb-1">📐 Công Thức Chuẩn:</span>
-            <code class="font-mono text-blue-800 text-xs">${g.formula}</code>
+            <code class="block whitespace-pre-line break-words font-mono text-blue-800 text-xs">${formatLineBreaks(g.formula)}</code>
           </div>
         ` : ''}
 
         ${g.signals ? `
           <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200/80">
             <span class="font-black text-amber-900 block mb-1">⚡ Dấu Hiệu Nhận Biết:</span>
-            <p class="text-amber-800 text-xs leading-relaxed">${g.signals}</p>
+            <p class="text-amber-800 text-xs leading-relaxed whitespace-pre-line">${formatLineBreaks(g.signals.replace(/;\s*/g, '\n'))}</p>
           </div>
         ` : ''}
 
@@ -4562,6 +4872,13 @@ function renderGrammarTheory() {
             <ul class="list-disc list-inside space-y-1 text-slate-600 text-xs pl-1">
               ${g.examples.map(ex => `<li>${ex}</li>`).join('')}
             </ul>
+          </div>
+        ` : ''}
+
+        ${g.notes ? `
+          <div class="p-3 bg-emerald-50/60 rounded-xl border border-emerald-200/80">
+            <span class="font-black text-emerald-900 block mb-1">💡 Ghi nhớ:</span>
+            <p class="text-emerald-800 text-xs leading-relaxed whitespace-pre-line">${formatLineBreaks(g.notes.replace(/;\s*/g, '\n'))}</p>
           </div>
         ` : ''}
       </div>
